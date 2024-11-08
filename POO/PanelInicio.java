@@ -93,4 +93,10 @@ public class PanelInicio extends JFrame {
     }
     }
 
+     public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            new PanelInicio().setVisible(true);
+        });
+    }
+
 }//Fin de la clase PanelInicio
