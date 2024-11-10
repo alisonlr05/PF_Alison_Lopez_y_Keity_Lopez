@@ -70,7 +70,7 @@ public class PanelInicio extends JFrame {
     String password = new String(txtPassword.getPassword());
 
     try (Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/tu_base_de_datos", "usuario", "contraseña")) {
-        String sql = "SELECT COUNT(*) FROM Usuarios WHERE nombreUsuario = ? AND password = ?";
+        String sql = "SELECT COUNT(*) FROM Usuarios WHERE usuario = ? AND contraseña = ?";
         PreparedStatement stmt = conexion.prepareStatement(sql);
         stmt.setString(1, usuario);
         stmt.setString(2, password);
