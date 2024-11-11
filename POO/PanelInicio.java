@@ -5,63 +5,72 @@ import java.awt.event.ActionListener;
 import java.sql.*;
 
 public class PanelInicio extends JFrame {
-    private JTextField txtUsuario;
-    private JPasswordField txtPassword;
-    private JButton btnIngresar;
+    private final JTextField txtUsuario;
+    private final JPasswordField txtPassword;
+    private final JButton btnIngresar;
 
     public PanelInicio() {
         setTitle("Autenticación de Usuarios");
-        setSize(400, 300);
+        setSize(600, 400); 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        
-        // Crear el panel y configurar la imagen de fondo
+
+        // Crear el panel con fondo de imagen
         JPanel panelFondo = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon imagenFondo = new ImageIcon("Fondo.jpg");
+                ImageIcon imagenFondo = new ImageIcon("imagenes/Fondo.jpg");
                 g.drawImage(imagenFondo.getImage(), 0, 0, getWidth(), getHeight(), this);
             }
         };
         panelFondo.setLayout(new GridBagLayout());
 
-        // Crear y agregar componentes de autenticación
+        // Crear etiquetas
         JLabel lblUsuario = new JLabel("Usuario:");
         JLabel lblPassword = new JLabel("Contraseña:");
-        txtUsuario = new JTextField(15);
-        txtPassword = new JPasswordField(15);
-        btnIngresar = new JButton("Ingresar", new ImageIcon("icono_ingresar.png"));
+        lblUsuario.setForeground(Color.WHITE);
+        lblPassword.setForeground(Color.WHITE);
+        lblUsuario.setFont(new Font("Arial", Font.BOLD, 16));  // Tamaño más grande
+        lblPassword.setFont(new Font("Arial", Font.BOLD, 16));
 
-        // Layout para el formulario de autenticación
+        // Crear los campos de texto 
+        txtUsuario = new JTextField(20);
+        txtPassword = new JPasswordField(20);
+        txtUsuario.setPreferredSize(new Dimension(200, 30));
+        txtPassword.setPreferredSize(new Dimension(200, 30));
+
+        // Crear el botón con un icono redimensionado
+        btnIngresar = new JButton("Ingresar", new ImageIcon(new ImageIcon("imagenes/ingresar.png").getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH)));
+        btnIngresar.setPreferredSize(new Dimension(200, 50));
+        btnIngresar.setFont(new Font("Arial", Font.BOLD, 14));  // Tamaño de letra más grande
+
+        // Layout para los componentes
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(5, 5, 5, 5);
+        gbc.insets = new Insets(10, 10, 10, 10);
         gbc.gridx = 0;
         gbc.gridy = 0;
         panelFondo.add(lblUsuario, gbc);
-        
+
         gbc.gridx = 1;
         panelFondo.add(txtUsuario, gbc);
-        
+
         gbc.gridx = 0;
         gbc.gridy = 1;
         panelFondo.add(lblPassword, gbc);
-        
+
         gbc.gridx = 1;
         panelFondo.add(txtPassword, gbc);
-        
+
         gbc.gridx = 1;
         gbc.gridy = 2;
         panelFondo.add(btnIngresar, gbc);
-        
+
         add(panelFondo);
 
         // Acción de autenticación al presionar "Ingresar"
-        btnIngresar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                autenticarUsuario();
-            }
+        btnIngresar.addActionListener((ActionEvent e) -> {
+            autenticarUsuario();
         });
     }
 
