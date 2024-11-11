@@ -4,29 +4,51 @@ import javax.swing.*;
 
 public class GestionTabla1 extends JFrame {
 
-    public GestionTabla1() {
+public GestionTabla1() {
         setTitle("Gestión de Tabla 1");
-        setSize(400, 300);
+        setSize(600, 400);  
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        
         // Crear panel con fondo de imagen
-        JPanel panel = new JPanel(new GridLayout(4, 1, 10, 10)) {
+        JPanel panel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon backgroundImage = new ImageIcon("Fondo.jpg");
+                ImageIcon backgroundImage = new ImageIcon("imagenes/Fondo.jpg");
                 g.drawImage(backgroundImage.getImage(), 0, 0, getWidth(), getHeight(), this);
             }
         };
+        panel.setOpaque(false);
+        panel.setLayout(new GridBagLayout());
 
-        // Crear botones con iconos
-        JButton btnInsertar = new JButton("Insertar", new ImageIcon("senales.png"));
-        JButton btnActualizar = new JButton("Actualizar", new ImageIcon("actualizar.png"));
-        JButton btnEliminar = new JButton("Eliminar", new ImageIcon("borrar.png"));
-        JButton btnConsultar = new JButton("Consultar", new ImageIcon("busqueda.png"));
+        // Crear iconos redimensionados desde la carpeta "imagenes" y aumentar tamaño
+        ImageIcon iconInsertar = new ImageIcon(new ImageIcon("imagenes/senales.png").getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH));
+        ImageIcon iconActualizar = new ImageIcon(new ImageIcon("imagenes/actualizar.png").getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH));
+        ImageIcon iconEliminar = new ImageIcon(new ImageIcon("imagenes/borrar.png").getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH));
+        ImageIcon iconConsultar = new ImageIcon(new ImageIcon("imagenes/busqueda.png").getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH));
 
+        // Crear botones con iconos redimensionados y aumentar tamaño de fuente
+        JButton btnInsertar = new JButton("Insertar", iconInsertar);
+        JButton btnActualizar = new JButton("Actualizar", iconActualizar);
+        JButton btnEliminar = new JButton("Eliminar", iconEliminar);
+        JButton btnConsultar = new JButton("Consultar", iconConsultar);
+
+        // Ajustar el tamaño de los botones y el tamaño de la fuente
+        Dimension buttonSize = new Dimension(150, 50);
+        Font buttonFont = new Font("Arial", Font.BOLD, 14);
+        
+        btnInsertar.setPreferredSize(buttonSize);
+        btnInsertar.setFont(buttonFont);
+
+        btnActualizar.setPreferredSize(buttonSize);
+        btnActualizar.setFont(buttonFont);
+
+        btnEliminar.setPreferredSize(buttonSize);
+        btnEliminar.setFont(buttonFont);
+
+        btnConsultar.setPreferredSize(buttonSize);
+        btnConsultar.setFont(buttonFont);
 
         // Añadir acciones a los botones
         btnInsertar.addActionListener((ActionEvent e) -> {
