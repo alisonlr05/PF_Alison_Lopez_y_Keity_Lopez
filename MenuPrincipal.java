@@ -7,7 +7,7 @@ public class MenuPrincipal extends JFrame {
     
     public MenuPrincipal() {
         setTitle("Menú Principal");
-        setSize(600, 400);
+        setSize(600, 400); 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
@@ -16,16 +16,26 @@ public class MenuPrincipal extends JFrame {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon imagenFondo = new ImageIcon("Fondo.jpg");
+                ImageIcon imagenFondo = new ImageIcon("imagenes/Fondo.jpg");
                 g.drawImage(imagenFondo.getImage(), 0, 0, getWidth(), getHeight(), this);
             }
         };
         panelFondo.setLayout(new GridBagLayout());
 
         // Crear botones para las opciones del menú
-        JButton btnTabla1 = new JButton("Gestionar Tabla 1", new ImageIcon("icono_tabla1.png"));
-        JButton btnTabla2 = new JButton("Gestionar Tabla 2", new ImageIcon("icono_tabla2.png"));
-        JButton btnCerrarSesion = new JButton("Cerrar Sesión", new ImageIcon("icono_cerrar_sesion.png"));
+        JButton btnTabla1 = new JButton("Gestionar Tabla 1", resizeIcon(new ImageIcon("imagenes/btnTabla.png"), 30, 30));
+        JButton btnTabla2 = new JButton("Gestionar Tabla 2", resizeIcon(new ImageIcon("imagenes/btnTabla.png"), 30, 30));
+        JButton btnCerrarSesion = new JButton("Cerrar Sesión", resizeIcon(new ImageIcon("imagenes/salida.png"), 30, 30));
+
+        // Estilo de los botones
+        Font fuenteBoton = new Font("Arial", Font.BOLD, 14);
+        for (JButton btn : new JButton[] { btnTabla1, btnTabla2, btnCerrarSesion }) {
+            btn.setFont(fuenteBoton);
+            btn.setPreferredSize(new Dimension(250, 40)); // Tamaño de los botones
+            btn.setHorizontalTextPosition(SwingConstants.RIGHT); // Pone el texto a la derecha del icono
+            btn.setVerticalTextPosition(SwingConstants.CENTER); // Pone el texto centrado verticalmente
+            btn.setIconTextGap(10); // Espacio entre el texto y el icono
+        }
 
         // Agregar acciones a los botones
         btnTabla1.addActionListener(new ActionListener() {
@@ -64,5 +74,12 @@ public class MenuPrincipal extends JFrame {
         panelFondo.add(btnCerrarSesion, gbc);
 
         add(panelFondo);
+    }
+
+    // Método para redimensionar el icono
+    private ImageIcon resizeIcon(ImageIcon icon, int width, int height) {
+        Image img = icon.getImage();
+        Image newImg = img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        return new ImageIcon(newImg);
     }
 }//Fin de la clase MenuPrincipal
