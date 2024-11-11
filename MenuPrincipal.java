@@ -29,51 +29,13 @@ public class MenuPrincipal extends JFrame {
 
         // Agregar acciones a los botones
         btnTabla1.addActionListener(new ActionListener() {
-             // Crear un menú con opciones
-    String[] opciones = {"Insertar", "Actualizar", "Eliminar", "Consultar"};
-    
-    // Mostrar un diálogo con las opciones
-    String seleccion = (String) JOptionPane.showInputDialog(
-        MenuPrincipal.this,
-        "Seleccione una opción:",
-        "Gestión de Tabla 1",
-        JOptionPane.QUESTION_MESSAGE,
-        null, // Icono por defecto
-        opciones, // Opciones del menú
-        opciones[0] // Opción por defecto
-    );
-
-    // Verificar la opción seleccionada
-    if (seleccion != null) {
-        switch (seleccion) {
-            case "Insertar":
-                JOptionPane.showMessageDialog(MenuPrincipal.this, "Funcionalidad de Insertar en Tabla 1");
-                // Aquí iría el código para insertar registros
-                break;
-            case "Actualizar":
-                JOptionPane.showMessageDialog(MenuPrincipal.this, "Funcionalidad de Actualizar en Tabla 1");
-                // Aquí iría el código para actualizar registros
-                break;
-            case "Eliminar":
-                JOptionPane.showMessageDialog(MenuPrincipal.this, "Funcionalidad de Eliminar en Tabla 1");
-                // Aquí iría el código para eliminar registros
-                break;
-            case "Consultar":
-                JOptionPane.showMessageDialog(MenuPrincipal.this, "Funcionalidad de Consultar en Tabla 1");
-                // Aquí iría el código para consultar registros
-                break;
-            default:
-                JOptionPane.showMessageDialog(MenuPrincipal.this, "Opción no válida");
-        }
-    }
+           new GestionTabla1().setVisible(true);
+            dispose();
         });
 
         btnTabla2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Aquí se abriría la ventana o panel para gestionar la Tabla 2
-                JOptionPane.showMessageDialog(MenuPrincipal.this, "Funcionalidad de Tabla 2");
-            }
+            new GestionTabla2().setVisible(true);
+            dispose();
         });
 
         btnCerrarSesion.addActionListener(new ActionListener() {
