@@ -75,31 +75,35 @@ public class PanelInicio extends JFrame {
     }
 
    private void autenticarUsuario() {
-    String usuario = txtUsuario.getText();
-    String password = new String(txtPassword.getPassword());
-
-    try (Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/tu_base_de_datos", "usuario", "contraseña")) {
-        String sql = "SELECT COUNT(*) FROM Usuarios WHERE usuario = ? AND contraseña = ?";
-        PreparedStatement stmt = conexion.prepareStatement(sql);
-        stmt.setString(1, usuario);
-        stmt.setString(2, password);
-
-        ResultSet rs = stmt.executeQuery();
-        rs.next();
-        int count = rs.getInt(1);
-
-        if (count == 1) {
-            JOptionPane.showMessageDialog(this, "Bienvenido, " + usuario);
-            // Abre el menú principal aquí
-            new MenuPrincipal().setVisible(true);
-            dispose(); // Cierra la ventana de PanelInicio
-        } else {
-            JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
+        String usuario = txtUsuario.getText();
+        String password = new String(txtPassword.getPassword());
+    
+        // Usar la clase ConexionDB para establecer la conexión
+        try (Connection conexion = ConexionDB.conectar()) {
+            if (conexion != null) {
+                String sql = "SELECT COUNT(*) FROM Usuarios WHERE usuario = ? AND contraseña = ?";
+                PreparedStatement stmt = conexion.prepareStatement(sql);
+                stmt.setString(1, usuario);
+                stmt.setString(2, password);
+    
+                ResultSet rs = stmt.executeQuery();
+                rs.next();
+                int count = rs.getInt(1);
+    
+                if (count == 1) {
+                    JOptionPane.showMessageDialog(this, "Bienvenido, " + usuario);
+                    // Abre el menú principal aquí
+                    new MenuPrincipal().setVisible(true);
+                    dispose(); // Cierra la ventana de PanelInicio
+                } else {
+                    JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "No se pudo conectar a la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Error de conexión con la base de datos: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-    } catch (SQLException ex) {
-        ex.printStackTrace();
-        JOptionPane.showMessageDialog(this, "Error de conexión con la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
-    }
     }
 
      public static void main(String[] args) {
