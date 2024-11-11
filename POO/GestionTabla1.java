@@ -67,11 +67,21 @@ public GestionTabla1() {
             JOptionPane.showMessageDialog(this, "Funcionalidad de Consultar en Tabla 1");
         });
 
-        // Añadir botones al panel
-        panel.add(btnInsertar);
-        panel.add(btnActualizar);
-        panel.add(btnEliminar);
-        panel.add(btnConsultar);
+        // Agregar botones al panel en forma de cuadrícula centrada
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(10, 10, 10, 10);
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        panel.add(btnInsertar, gbc);
+
+        gbc.gridy = 1;
+        panel.add(btnActualizar, gbc);
+
+        gbc.gridy = 2;
+        panel.add(btnEliminar, gbc);
+
+        gbc.gridy = 3;
+        panel.add(btnConsultar, gbc);
 
         add(panel, BorderLayout.CENTER);
 
