@@ -10,13 +10,23 @@ public class GestionTabla1 extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        JPanel panel = new JPanel(new GridLayout(4, 1, 10, 10));
         
-        // Crear botones para las operaciones
-        JButton btnInsertar = new JButton("Insertar");
-        JButton btnActualizar = new JButton("Actualizar");
-        JButton btnEliminar = new JButton("Eliminar");
-        JButton btnConsultar = new JButton("Consultar");
+        // Crear panel con fondo de imagen
+        JPanel panel = new JPanel(new GridLayout(4, 1, 10, 10)) {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                ImageIcon backgroundImage = new ImageIcon("Fondo.jpg");
+                g.drawImage(backgroundImage.getImage(), 0, 0, getWidth(), getHeight(), this);
+            }
+        };
+
+        // Crear botones con iconos
+        JButton btnInsertar = new JButton("Insertar", new ImageIcon("senales.png"));
+        JButton btnActualizar = new JButton("Actualizar", new ImageIcon("actualizar.png"));
+        JButton btnEliminar = new JButton("Eliminar", new ImageIcon("borrar.png"));
+        JButton btnConsultar = new JButton("Consultar", new ImageIcon("busqueda.png"));
+
 
         // Añadir acciones a los botones
         btnInsertar.addActionListener((ActionEvent e) -> {
