@@ -52,7 +52,7 @@ public GestionTabla1() {
 
         // Añadir acciones a los botones
         btnInsertar.addActionListener((ActionEvent e) -> {
-            JOptionPane.showMessageDialog(this, "Funcionalidad de Insertar en Tabla 1");
+        new InsertarEmpleado().setVisible(true);
         });
 
         btnActualizar.addActionListener((ActionEvent e) -> {
