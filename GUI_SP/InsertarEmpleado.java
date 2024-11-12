@@ -122,28 +122,37 @@ public class InsertarEmpleado extends JFrame {
         return label;
     }
 
-    // Método para guardar el empleado en la base de datos llamando al SP
-    private void guardarEmpleado() {
-        try (Connection conn = ConexionDB.conectar()) {
-            String sql = "{ CALL InsertarEmpleado(?, ?, ?, ?, ?, ?, ?, ?, ?) }";
-            PreparedStatement ps = conn.prepareStatement(sql);
+   // Método para guardar el empleado en la base de datos llamando al SP
+private void guardarEmpleado() {
+    try (Connection conn = ConexionDB.conectar()) {
+        // Llamar al procedimiento almacenado con 8 parámetros
+        String sql = "{ CALL InsertarEmpleado(?, ?, ?, ?, ?, ?, ?, ?) }";
+        PreparedStatement ps = conn.prepareStatement(sql);
 
-            ps.setString(1, txtCedula.getText());
-            ps.setString(2, txtNombre1.getText());
-            ps.setString(3, txtNombre2.getText());
-            ps.setString(4, txtApellido1.getText());
-            ps.setString(5, txtApellido2.getText());
-            ps.setString(6, txtFechaNacimiento.getText());
-            ps.setInt(7, Integer.parseInt(txtIdCargo.getText()));
-            ps.setDouble(8, Double.parseDouble(txtSalario.getText()));
-            ps.setString(9, txtCargo.getText());
+        // Establecer los 8 parámetros requeridos por el SP
+        ps.setString(1, txtCedula.getText());
+        ps.setString(2, txtNombre1.getText());
+        ps.setString(3, txtNombre2.getText());
+        ps.setString(4, txtApellido1.getText());
+        ps.setString(5, txtApellido2.getText());
+        ps.setString(6, txtFechaNacimiento.getText());
+        ps.setInt(7, Integer.parseInt(txtIdCargo.getText()));
+        ps.setDouble(8, Double.parseDouble(txtSalario.getText()));
 
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Empleado insertado exitosamente.");
+        // Ejecutar la actualización
+        ps.executeUpdate();
+        
+        // Mostrar mensaje de éxito
+        JOptionPane.showMessageDialog(this, "Empleado insertado exitosamente.");
 
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, "Error al insertar empleado: " + ex.getMessage());
-        }
+    } catch (SQLException ex) {
+        // Mostrar mensaje de error en caso de fallo
+        JOptionPane.showMessageDialog(this, "Error al insertar empleado: " + ex.getMessage());
+    } catch (NumberFormatException ex) {
+        // Manejo de excepciones para conversiones incorrectas (ej: ID Cargo y Salario)
+        JOptionPane.showMessageDialog(this, "Error en los datos numéricos: " + ex.getMessage());
     }
+}
+
 }
 
