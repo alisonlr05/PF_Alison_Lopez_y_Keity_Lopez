@@ -60,11 +60,11 @@ public GestionTabla1() {
         });
 
         btnEliminar.addActionListener((ActionEvent e) -> {
-            JOptionPane.showMessageDialog(this, "Funcionalidad de Eliminar en Tabla 1");
+           new EliminarEmpleado().setVisible(true);
         });
 
         btnConsultar.addActionListener((ActionEvent e) -> {
-            JOptionPane.showMessageDialog(this, "Funcionalidad de Consultar en Tabla 1");
+         new ConsultarEmpleado().setVisible(true);
         });
 
         // Agregar botones al panel en forma de cuadrícula centrada
