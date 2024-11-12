@@ -40,22 +40,27 @@ public class EliminarEmpleado extends JFrame {
         JButton btnEliminar = new JButton("Eliminar");
         btnEliminar.addActionListener((ActionEvent e) -> eliminarEmpleado());
 
-        // Regresar al Menú
+        // Botón para regresar al menú
         JButton btnRegresar = new JButton("Regresar al Menú");
-        btnRegresar.setFont(new Font("Arial", Font.PLAIN, 14));
+        btnRegresar.setFont(new Font("Arial", Font.PLAIN, 14)); // Ajusta el tamaño de la fuente
         btnRegresar.addActionListener((ActionEvent e) -> {
-            new GestionTabla1().setVisible(true);
-            dispose();  // Close current window
+            new GestionTabla1().setVisible(true);  // Llama a la clase para regresar al menú
+            dispose();  // Cierra la ventana actual
         });
+        
+        // Añadir el botón en la parte inferior del frame
+        add(btnRegresar, BorderLayout.SOUTH);
 
         // Layout settings
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
         gbc.gridx = 0;
         gbc.gridy = 0;
+        gbc.gridwidth = 2;
         panel.add(lblTitulo, gbc);
 
         gbc.gridy = 1;
+        gbc.gridwidth = 1;
         panel.add(lblCedula, gbc);
         
         gbc.gridx = 1;
