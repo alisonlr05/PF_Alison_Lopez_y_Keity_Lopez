@@ -52,7 +52,7 @@ public class GestionTabla2 extends JFrame {
             
         // Añadir acciones a los botones
         btnInsertar.addActionListener((ActionEvent e) -> {
-            JOptionPane.showMessageDialog(this, "Funcionalidad de Insertar en Tabla 2");
+            new InsertarCargoFrame().setVisible(true);
         });
 
         btnActualizar.addActionListener((ActionEvent e) -> {
