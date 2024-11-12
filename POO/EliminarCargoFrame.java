@@ -39,6 +39,17 @@ public class EliminarCargoFrame extends JFrame {
             }
         });
 
+        // Botón para regresar al menú
+        JButton btnRegresar = new JButton("Regresar al Menú");
+        btnRegresar.setFont(new Font("Arial", Font.PLAIN, 14)); // Ajusta el tamaño de la fuente
+        btnRegresar.addActionListener((ActionEvent e) -> {
+            new GestionTabla2().setVisible(true);  // Llama a la clase para regresar al menú
+            dispose();  // Cierra la ventana actual
+        });
+        
+        // Añadir el botón en la parte inferior del frame
+        add(btnRegresar, BorderLayout.SOUTH);
+
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
         gbc.gridx = 0;
