@@ -21,11 +21,20 @@ public class InsertarCargoFrame extends JFrame {
         panel.setOpaque(false);
         panel.setLayout(new GridBagLayout());
 
+        // Crear título
+        JLabel title = new JLabel("Insertar Cargo");
+        title.setForeground(Color.WHITE);
+        title.setFont(new Font("Arial", Font.BOLD, 20));
+
+        // Estilo para etiquetas y botones
+        Font fuenteBoton = new Font("Arial", Font.BOLD, 14); 
+        Color colorLetra = Color.WHITE;
+
         // Etiquetas y campos de texto para 'id_cargo' y 'cargo'
-        JLabel lblIdCargo = new JLabel("ID Cargo:");
+        JLabel lblIdCargo = createStyledLabel("ID Cargo:", fuenteBoton, colorLetra);
         JTextField txtIdCargo = new JTextField(20);
-        
-        JLabel lblCargo = new JLabel("Cargo:");
+
+        JLabel lblCargo = createStyledLabel("Cargo:", fuenteBoton, colorLetra);
         JTextField txtCargo = new JTextField(20);
         
         JButton btnInsertar = new JButton("Insertar");
@@ -106,5 +115,13 @@ public class InsertarCargoFrame extends JFrame {
             JOptionPane.showMessageDialog(this, "Error al insertar el cargo: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
+    }
+
+    // Método para crear etiquetas con fuente y color personalizados
+    private JLabel createStyledLabel(String text, Font font, Color color) {
+        JLabel label = new JLabel(text);
+        label.setFont(font);
+        label.setForeground(color);
+        return label;
     }
 }

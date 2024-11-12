@@ -21,6 +21,11 @@ public class EliminarCargoFrame extends JFrame {
         panel.setOpaque(false);
         panel.setLayout(new GridBagLayout());
 
+        // Crear título
+        JLabel title = new JLabel("Eliminar Cargo");
+        title.setForeground(Color.WHITE);
+        title.setFont(new Font("Arial", Font.BOLD, 20));
+
         // Estilo para etiquetas y botones
         Font fuenteBoton = new Font("Arial", Font.BOLD, 14); // Igual que en MenuPrincipal
         Color colorLetra = Color.WHITE;
