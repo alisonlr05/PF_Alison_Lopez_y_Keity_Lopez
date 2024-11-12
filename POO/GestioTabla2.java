@@ -53,18 +53,22 @@ public class GestionTabla2 extends JFrame {
         // Añadir acciones a los botones
         btnInsertar.addActionListener((ActionEvent e) -> {
             new InsertarCargoFrame().setVisible(true);
+            dispose();
         });
 
         btnActualizar.addActionListener((ActionEvent e) -> {
-            JOptionPane.showMessageDialog(this, "Funcionalidad de Actualizar en Tabla 2");
+            new ActualizarCargoFrame().setVisible(true);
+            dispose();
         });
 
         btnEliminar.addActionListener((ActionEvent e) -> {
             new EliminarCargoFrame().setVisible(true);
+            dispose();
         });
 
         btnConsultar.addActionListener((ActionEvent e) -> {
-            JOptionPane.showMessageDialog(this, "Funcionalidad de Consultar en Tabla 2");
+            new ConsultarCargosFrame().setVisible(true);
+            dispose();
         });
 
                 // Agregar botones al panel en forma de cuadrícula centrada

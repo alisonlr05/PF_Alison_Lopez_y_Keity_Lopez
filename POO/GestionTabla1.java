@@ -53,6 +53,7 @@ public GestionTabla1() {
         // Añadir acciones a los botones
         btnInsertar.addActionListener((ActionEvent e) -> {
         new InsertarEmpleado().setVisible(true);
+        dispose();
         });
 
         btnActualizar.addActionListener((ActionEvent e) -> {
@@ -61,10 +62,12 @@ public GestionTabla1() {
 
         btnEliminar.addActionListener((ActionEvent e) -> {
            new EliminarEmpleado().setVisible(true);
+           dispose();
         });
 
         btnConsultar.addActionListener((ActionEvent e) -> {
          new ConsultarEmpleado().setVisible(true);
+         dispose();
         });
 
         // Agregar botones al panel en forma de cuadrícula centrada
