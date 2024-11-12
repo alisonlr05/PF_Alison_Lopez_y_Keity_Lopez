@@ -26,6 +26,13 @@ public class EliminarCargoFrame extends JFrame {
         title.setForeground(Color.WHITE);
         title.setFont(new Font("Arial", Font.BOLD, 20));
 
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(10, 10, 10, 10);
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridwidth = 2;
+        panel.add(title, gbc);
+
         // Estilo para etiquetas y botones
         Font fuenteBoton = new Font("Arial", Font.BOLD, 14); // Igual que en MenuPrincipal
         Color colorLetra = Color.WHITE;
@@ -61,7 +68,6 @@ public class EliminarCargoFrame extends JFrame {
         // Añadir el botón en la parte inferior del frame
         add(btnRegresar, BorderLayout.SOUTH);
 
-        GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
         gbc.gridx = 0;
         gbc.gridy = 0;
