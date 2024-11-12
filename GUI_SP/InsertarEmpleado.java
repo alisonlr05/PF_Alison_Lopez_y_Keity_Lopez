@@ -12,7 +12,7 @@ public class InsertarEmpleado extends JFrame {
     
     public InsertarEmpleado() {
         setTitle("Insertar Empleado");
-        setSize(400, 550);
+        setSize(600, 400); 
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         

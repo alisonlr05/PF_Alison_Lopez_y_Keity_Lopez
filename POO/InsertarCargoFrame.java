@@ -6,7 +6,7 @@ import javax.swing.*;
 public class InsertarCargoFrame extends JFrame {
     public InsertarCargoFrame() {
         setTitle("Insertar Cargo");
-        setSize(400, 300);
+        setSize(600, 400); 
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
 
