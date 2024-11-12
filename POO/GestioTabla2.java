@@ -60,7 +60,7 @@ public class GestionTabla2 extends JFrame {
         });
 
         btnEliminar.addActionListener((ActionEvent e) -> {
-            JOptionPane.showMessageDialog(this, "Funcionalidad de Eliminar en Tabla 2");
+            new EliminarCargoFrame().setVisible(true);
         });
 
         btnConsultar.addActionListener((ActionEvent e) -> {
