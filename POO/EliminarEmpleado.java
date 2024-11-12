@@ -10,7 +10,7 @@ public class EliminarEmpleado extends JFrame {
 
     public EliminarEmpleado() {
         setTitle("Eliminar Empleado");
-        setSize(400, 250);
+        setSize(600, 400);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
@@ -73,22 +73,28 @@ public class EliminarEmpleado extends JFrame {
         pack(); 
     }
 
+//eliminar empleado según la cédula ingresada.   
     private void eliminarEmpleado() {
         String cedula = txtCedula.getText().trim();
+
+        // Validación de entrada
         if (cedula.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Por favor, ingrese una cédula válida.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-
+        
+    // Conexión a la base de datos y eliminación del empleado
         try (Connection conn = ConexionDB.conectar();
-             PreparedStatement stmt = conn.prepareStatement("DELETE FROM empleados WHERE cedula = ?")) {
+             PreparedStatement stmt = conn.prepareStatement("DELETE FROM Empleado WHERE cedula = ?")) {
+
             stmt.setString(1, cedula);
             int rowsAffected = stmt.executeUpdate();
+
             if (rowsAffected > 0) {
                 JOptionPane.showMessageDialog(this, "Empleado eliminado exitosamente.");
-                dispose();
+                txtCedula.setText(""); // Limpiar campo de cédula
             } else {
-                JOptionPane.showMessageDialog(this, "No se encontró un empleado con esa cédula.", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "No se encontró un empleado con esa cédula.", "Advertencia", JOptionPane.WARNING_MESSAGE);
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(this, "Error al eliminar el empleado: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);

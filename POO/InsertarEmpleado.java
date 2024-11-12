@@ -140,6 +140,13 @@ public class InsertarEmpleado extends JFrame {
 
             ps.executeUpdate();
             JOptionPane.showMessageDialog(this, "Empleado insertado exitosamente.");
+            txtCedula.setText("");
+            txtNombre1.setText("");
+            txtNombre2.setText("");
+            txtApellido1.setText("");
+            txtApellido2.setText("");
+            txtIdCargo.setText("");
+            txtSalario.setText("");
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(this, "Error al insertar empleado: " + ex.getMessage());
