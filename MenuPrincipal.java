@@ -23,8 +23,8 @@ public class MenuPrincipal extends JFrame {
         panelFondo.setLayout(new GridBagLayout());
 
         // Crear botones para las opciones del menú
-        JButton btnTabla1 = new JButton("Gestionar Tabla 1", resizeIcon(new ImageIcon("imagenes/btnTabla.png"), 30, 30));
-        JButton btnTabla2 = new JButton("Gestionar Tabla 2", resizeIcon(new ImageIcon("imagenes/btnTabla.png"), 30, 30));
+        JButton btnTabla1 = new JButton("Gestionar Tabla Empleado", resizeIcon(new ImageIcon("imagenes/btnTabla.png"), 30, 30));
+        JButton btnTabla2 = new JButton("Gestionar Tabla Cargo", resizeIcon(new ImageIcon("imagenes/btnTabla.png"), 30, 30));
         JButton btnCerrarSesion = new JButton("Cerrar Sesión", resizeIcon(new ImageIcon("imagenes/salida.png"), 30, 30));
 
         // Estilo de los botones
@@ -32,8 +32,8 @@ public class MenuPrincipal extends JFrame {
         for (JButton btn : new JButton[] { btnTabla1, btnTabla2, btnCerrarSesion }) {
             btn.setFont(fuenteBoton);
             btn.setPreferredSize(new Dimension(250, 40)); // Tamaño de los botones
-            btn.setHorizontalTextPosition(SwingConstants.RIGHT); // Pone el texto a la derecha del icono
-            btn.setVerticalTextPosition(SwingConstants.CENTER); // Pone el texto centrado verticalmente
+            btn.setHorizontalTextPosition(SwingConstants.RIGHT); // texto a la derecha del icono
+            btn.setVerticalTextPosition(SwingConstants.CENTER); // texto centrado verticalmente
             btn.setIconTextGap(10); // Espacio entre el texto y el icono
         }
 
