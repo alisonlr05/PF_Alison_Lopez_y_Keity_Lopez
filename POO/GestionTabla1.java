@@ -50,6 +50,12 @@ public GestionTabla1() {
         btnConsultar.setPreferredSize(buttonSize);
         btnConsultar.setFont(buttonFont);
 
+        // Agregar mensajes informativos a los botones
+        btnInsertar.setToolTipText("Inserta nuevos empleados a la tabla Empleado");
+        btnActualizar.setToolTipText("Actualiza con nuevos datos la tabla Empleado");
+        btnEliminar.setToolTipText("Elimina Empleados de la tabla Empleados");
+        btnConsultar.setToolTipText("Consulta por un Empleado de la tabla, mediante la cedula");
+
         // Añadir acciones a los botones
         btnInsertar.addActionListener((ActionEvent e) -> {
         new InsertarEmpleado().setVisible(true);
