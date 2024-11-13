@@ -31,7 +31,7 @@ public class MenuPrincipal extends JFrame {
         Font fuenteBoton = new Font("Arial", Font.BOLD, 14);
         for (JButton btn : new JButton[] { btnTabla1, btnTabla2, btnCerrarSesion }) {
             btn.setFont(fuenteBoton);
-            btn.setPreferredSize(new Dimension(250, 40)); // Tamaño de los botones
+            btn.setPreferredSize(new Dimension(280, 40)); // Tamaño de los botones
             btn.setHorizontalTextPosition(SwingConstants.RIGHT); // texto a la derecha del icono
             btn.setVerticalTextPosition(SwingConstants.CENTER); // texto centrado verticalmente
             btn.setIconTextGap(10); // Espacio entre el texto y el icono
