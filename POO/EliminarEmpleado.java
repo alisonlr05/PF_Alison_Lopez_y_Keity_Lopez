@@ -32,13 +32,20 @@ public class EliminarEmpleado extends JFrame {
         lblTitulo.setFont(new Font("Arial", Font.BOLD, 20));
         lblTitulo.setForeground(Color.WHITE);
 
+        // Etiqueta para la cédula
         JLabel lblCedula = new JLabel("Cédula a eliminar:");
+        lblCedula.setFont(new Font("Arial", Font.BOLD, 16)); // Aumentar tamaño de la etiqueta
         lblCedula.setForeground(Color.WHITE);
+
+        // Campo de texto para la cédula
         txtCedula = new JTextField(15);
+        txtCedula.setFont(new Font("Arial", Font.PLAIN, 16)); // Aumentar tamaño de fuente en el campo de texto
 
         //boton Eliminar
-        JButton btnEliminar = new JButton("Eliminar");
-        btnEliminar.addActionListener((ActionEvent e) -> eliminarEmpleado());
+        ImageIcon iconEliminar = new ImageIcon(new ImageIcon("imagenes/borrar.png").getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH));
+        JButton btnEliminar = new JButton("Eliminar", iconEliminar);
+        btnEliminar.setFont(new Font("Arial", Font.BOLD, 14));
+        btnEliminar.addActionListener(e -> eliminarEmpleado());
 
         // Botón para regresar al menú
         JButton btnRegresar = new JButton("Regresar al Menú");
@@ -87,8 +94,8 @@ public class EliminarEmpleado extends JFrame {
             JOptionPane.showMessageDialog(this, "Por favor, ingrese una cédula válida.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
-    // Conexión a la base de datos y eliminación del empleado
+
+        // Conexión a la base de datos y eliminación del empleado
         try (Connection conn = ConexionDB.conectar();
              PreparedStatement stmt = conn.prepareStatement("DELETE FROM Empleado WHERE cedula = ?")) {
 
