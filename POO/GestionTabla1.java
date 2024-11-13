@@ -63,7 +63,8 @@ public GestionTabla1() {
         });
 
         btnActualizar.addActionListener((ActionEvent e) -> {
-            JOptionPane.showMessageDialog(this, "Funcionalidad de Actualizar en Tabla 1");
+            new ActualizarEmpleado().setVisible(true);
+            dispose();
         });
 
         btnEliminar.addActionListener((ActionEvent e) -> {
