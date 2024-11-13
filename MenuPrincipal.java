@@ -38,8 +38,8 @@ public class MenuPrincipal extends JFrame {
         }
 
         // Agregar mensajes informativos (tooltips) a los botones
-        btnTabla1.setToolTipText("Gestiona los datos de la Tabla Empleado");
-        btnTabla2.setToolTipText("Gestiona los datos de la Tabla Cargo");
+        btnTabla1.setToolTipText("Gestiona los datos de la Tabla Empleado.");
+        btnTabla2.setToolTipText("Gestiona los datos de la Tabla Cargo.");
         btnCerrarSesion.setToolTipText("Cierra la sesión actual y regresa al inicio.");
 
         // Agregar acciones a los botones
