@@ -38,8 +38,6 @@ public class ConsultarEmpleado extends JFrame {
         JLabel lblCedula = new JLabel("Cédula:");
         lblCedula.setForeground(Color.WHITE);
         lblCedula.setFont(new Font("Arial", Font.BOLD, 16)); // Aumentar el tamaño de la fuente
-
-        // Ajustar el tamaño del JTextField
         txtCedula = new JTextField(10);
 
         // Botón Buscar con ícono
@@ -78,7 +76,7 @@ public class ConsultarEmpleado extends JFrame {
         gbc.gridwidth = 1;
         panel.add(lblCedula, gbc);
 
-        // Configuración para el campo de texto (JTextField) y botón Buscar en la misma fila
+        // Configuración para el campo de texto y botón Buscar en la misma fila
         gbc.gridx = 1;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         panel.add(txtCedula, gbc);
