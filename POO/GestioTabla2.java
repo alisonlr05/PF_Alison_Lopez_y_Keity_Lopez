@@ -49,6 +49,12 @@ public class GestionTabla2 extends JFrame {
 
         btnConsultar.setPreferredSize(buttonSize);
         btnConsultar.setFont(buttonFont);
+
+       // Agregar mensajes informativos a los botones
+       btnInsertar.setToolTipText("Inserta nuevos cargos a los empleados en tabla Cargo");
+       btnActualizar.setToolTipText("Actualiza con nuevos datos la tabla Cargo");
+       btnEliminar.setToolTipText("Elimina el Cargo de un empleado de la tabla Cargo");
+       btnConsultar.setToolTipText("Consulta por el cargo de un empleado, mediante el ID cargo");
             
         // Añadir acciones a los botones
         btnInsertar.addActionListener((ActionEvent e) -> {
