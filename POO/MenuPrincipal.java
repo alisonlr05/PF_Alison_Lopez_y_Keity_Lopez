@@ -1,7 +1,6 @@
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.*;
 
 public class MenuPrincipal extends JFrame {
     
@@ -32,36 +31,35 @@ public class MenuPrincipal extends JFrame {
         for (JButton btn : new JButton[] { btnTabla1, btnTabla2, btnCerrarSesion }) {
             btn.setFont(fuenteBoton);
             btn.setPreferredSize(new Dimension(280, 40)); // Tamaño de los botones
-            btn.setHorizontalTextPosition(SwingConstants.RIGHT); // texto a la derecha del icono
-            btn.setVerticalTextPosition(SwingConstants.CENTER); // texto centrado verticalmente
+            btn.setHorizontalTextPosition(SwingConstants.RIGHT); // Pone el texto a la derecha del icono
+            btn.setVerticalTextPosition(SwingConstants.CENTER); // Pone el texto centrado verticalmente
             btn.setIconTextGap(10); // Espacio entre el texto y el icono
         }
 
         // Agregar mensajes informativos (tooltips) a los botones
-        btnTabla1.setToolTipText("Gestiona los datos de la Tabla Empleado.");
-        btnTabla2.setToolTipText("Gestiona los datos de la Tabla Cargo.");
+        btnTabla1.setToolTipText("Gestiona los datos de la Tabla 1.");
+        btnTabla2.setToolTipText("Gestiona los datos de la Tabla 2.");
         btnCerrarSesion.setToolTipText("Cierra la sesión actual y regresa al inicio.");
 
         // Agregar acciones a los botones
-        btnTabla1.addActionListener(new ActionListener() {
-           new GestionTabla1().setVisible(true);
-            dispose();
+        btnTabla1.addActionListener((ActionEvent e) -> {
+            // Mostrar ventana de GestionTabla1
+            new GestionTabla1().setVisible(true);
+            dispose(); // Cerrar la ventana principal
         });
 
-        btnTabla2.addActionListener(new ActionListener() {
+        btnTabla2.addActionListener((ActionEvent e) -> {
+            // Mostrar ventana de GestionTabla2
             new GestionTabla2().setVisible(true);
-            dispose();
+            dispose(); // Cerrar la ventana principal
         });
 
-        btnCerrarSesion.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int opcion = JOptionPane.showConfirmDialog(MenuPrincipal.this, "¿Está seguro de que desea cerrar sesión?", "Confirmación", JOptionPane.YES_NO_OPTION);
-                if (opcion == JOptionPane.YES_OPTION) {
-                    // Regresar al PanelInicio
-                    new PanelInicio().setVisible(true);
-                    dispose();
-                }
+        btnCerrarSesion.addActionListener((ActionEvent e) -> {
+            int opcion = JOptionPane.showConfirmDialog(MenuPrincipal.this, "¿Está seguro de que desea cerrar sesión?", "Confirmación", JOptionPane.YES_NO_OPTION);
+            if (opcion == JOptionPane.YES_OPTION) {
+                // Regresar al PanelInicio
+                new PanelInicio().setVisible(true);
+                dispose();
             }
         });
 
@@ -87,4 +85,5 @@ public class MenuPrincipal extends JFrame {
         Image newImg = img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
         return new ImageIcon(newImg);
     }
-}//Fin de la clase MenuPrincipal
+
+}//Fin de la clase Menu Principal
