@@ -22,19 +22,19 @@ public GestionTabla1() {
         panel.setOpaque(false);
         panel.setLayout(new GridBagLayout());
 
-        // Crear iconos redimensionados desde la carpeta "imagenes" y aumentar tamaño
+        // Crear iconos redimensionados 
         ImageIcon iconInsertar = new ImageIcon(new ImageIcon("imagenes/senales.png").getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH));
         ImageIcon iconActualizar = new ImageIcon(new ImageIcon("imagenes/actualizar.png").getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH));
         ImageIcon iconEliminar = new ImageIcon(new ImageIcon("imagenes/borrar.png").getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH));
         ImageIcon iconConsultar = new ImageIcon(new ImageIcon("imagenes/busqueda.png").getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH));
 
-        // Crear botones con iconos redimensionados y aumentar tamaño de fuente
+        // Crear botones con iconos redimensionados 
         JButton btnInsertar = new JButton("Insertar", iconInsertar);
         JButton btnActualizar = new JButton("Actualizar", iconActualizar);
         JButton btnEliminar = new JButton("Eliminar", iconEliminar);
         JButton btnConsultar = new JButton("Consultar", iconConsultar);
 
-        // Ajustar el tamaño de los botones y el tamaño de la fuente
+        // Ajusta el tamaño de los botones y el tamaño de la fuente
         Dimension buttonSize = new Dimension(150, 50);
         Font buttonFont = new Font("Arial", Font.BOLD, 14);
         
@@ -76,7 +76,7 @@ public GestionTabla1() {
          dispose();
         });
 
-        // Agregar botones al panel en forma de cuadrícula centrada
+        // Agregar botones al panel en forma centrada
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
         gbc.gridx = 0;
