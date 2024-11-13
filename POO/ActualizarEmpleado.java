@@ -10,7 +10,6 @@ public class ActualizarEmpleado extends JFrame {
     private final JTextField txtNombre2;
     private final JTextField txtApellido1;
     private final JTextField txtApellido2;
-    private final JTextField txtFechaNacimiento;
     private final JTextField txtIdCargo;
     private final JTextField txtSalario;
 
@@ -64,11 +63,6 @@ public class ActualizarEmpleado extends JFrame {
         lblApellido2.setFont(labelFont);
         lblApellido2.setForeground(Color.WHITE);
         txtApellido2 = new JTextField(20);
-
-        JLabel lblFechaNacimiento = new JLabel("Fecha de Nacimiento (YYYY-MM-DD):");
-        lblFechaNacimiento.setFont(labelFont);
-        lblFechaNacimiento.setForeground(Color.WHITE);
-        txtFechaNacimiento = new JTextField(20);
 
         JLabel lblIdCargo = new JLabel("ID Cargo:");
         lblIdCargo.setFont(labelFont);
@@ -163,15 +157,14 @@ public class ActualizarEmpleado extends JFrame {
 
     private void actualizarEmpleado() {
         try (Connection conn = ConexionDB.conectar();
-             CallableStatement stmt = conn.prepareCall("{CALL ActualizarEmpleado(?, ?, ?, ?, ?, ?, ?, ?)}")) {
+             CallableStatement stmt = conn.prepareCall("{CALL Actualizar_Empleado(?, ?, ?, ?, ?, ?, ?)}")) {
             stmt.setString(1, txtCedula.getText().trim());
             stmt.setString(2, txtNombre1.getText().trim());
             stmt.setString(3, txtNombre2.getText().trim());
             stmt.setString(4, txtApellido1.getText().trim());
             stmt.setString(5, txtApellido2.getText().trim());
-            stmt.setDate(6, Date.valueOf(txtFechaNacimiento.getText().trim()));
-            stmt.setInt(7, Integer.parseInt(txtIdCargo.getText().trim()));
-            stmt.setBigDecimal(8, new BigDecimal(txtSalario.getText().trim()));
+            stmt.setInt(6, Integer.parseInt(txtIdCargo.getText().trim()));
+            stmt.setBigDecimal(7, new BigDecimal(txtSalario.getText().trim()));
             stmt.execute();
 
             JOptionPane.showMessageDialog(this, "Empleado actualizado correctamente.");
