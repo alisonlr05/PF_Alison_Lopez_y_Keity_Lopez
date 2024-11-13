@@ -31,12 +31,12 @@ public class MenuPrincipal extends JFrame {
         for (JButton btn : new JButton[] { btnTabla1, btnTabla2, btnCerrarSesion }) {
             btn.setFont(fuenteBoton);
             btn.setPreferredSize(new Dimension(280, 40)); // Tamaño de los botones
-            btn.setHorizontalTextPosition(SwingConstants.RIGHT); // Pone el texto a la derecha del icono
-            btn.setVerticalTextPosition(SwingConstants.CENTER); // Pone el texto centrado verticalmente
+            btn.setHorizontalTextPosition(SwingConstants.RIGHT); // texto a la derecha del icono
+            btn.setVerticalTextPosition(SwingConstants.CENTER); // texto centrado verticalmente
             btn.setIconTextGap(10); // Espacio entre el texto y el icono
         }
 
-        // Agregar mensajes informativos (tooltips) a los botones
+        // Agregar mensajes informativos a los botones
         btnTabla1.setToolTipText("Gestiona los datos de la Tabla 1.");
         btnTabla2.setToolTipText("Gestiona los datos de la Tabla 2.");
         btnCerrarSesion.setToolTipText("Cierra la sesión actual y regresa al inicio.");
