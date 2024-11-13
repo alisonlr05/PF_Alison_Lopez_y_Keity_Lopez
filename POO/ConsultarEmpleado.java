@@ -45,6 +45,7 @@ public class ConsultarEmpleado extends JFrame {
         // Botón Buscar con ícono
         ImageIcon iconBuscar = new ImageIcon(new ImageIcon("imagenes/Buscar.png").getImage().getScaledInstance(24, 24, Image.SCALE_SMOOTH));
         JButton btnBuscar = new JButton("Buscar", iconBuscar);
+        btnBuscar.setPreferredSize(new Dimension(120, 30));
         btnBuscar.addActionListener((ActionEvent e) -> buscarEmpleado());
 
         // Configurar tabla
