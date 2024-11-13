@@ -13,7 +13,7 @@ public class ConsultarEmpleado extends JFrame {
 
     public ConsultarEmpleado() {
         setTitle("Consultar Empleado");
-        setSize(650, 450); // Aumenta un poco el tamaño de la ventana
+        setSize(650, 450); 
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
@@ -76,7 +76,7 @@ public class ConsultarEmpleado extends JFrame {
         gbc.gridwidth = 1;
         panel.add(lblCedula, gbc);
 
-        // Configuración para el campo de texto y botón Buscar en la misma fila
+        // Configuración para el campo de texto y botón Buscar 
         gbc.gridx = 1;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         panel.add(txtCedula, gbc);
