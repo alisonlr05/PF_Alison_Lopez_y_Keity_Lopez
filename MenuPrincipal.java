@@ -37,6 +37,11 @@ public class MenuPrincipal extends JFrame {
             btn.setIconTextGap(10); // Espacio entre el texto y el icono
         }
 
+        // Agregar mensajes informativos (tooltips) a los botones
+        btnTabla1.setToolTipText("Gestiona los datos de la Tabla 1.");
+        btnTabla2.setToolTipText("Gestiona los datos de la Tabla 2.");
+        btnCerrarSesion.setToolTipText("Cierra la sesión actual y regresa al inicio.");
+
         // Agregar acciones a los botones
         btnTabla1.addActionListener(new ActionListener() {
            new GestionTabla1().setVisible(true);
